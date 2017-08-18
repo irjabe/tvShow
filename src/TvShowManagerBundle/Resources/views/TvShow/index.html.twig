@@ -1,0 +1,56 @@
+{% extends '@TvShowManager/base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-10 col-sm-8 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-3">
+                {% for message in app.session.flashBag.get('message') %}
+                    <div class="alert alert-warning"> {{ message }}</div>
+                {% endfor %}
+                <div class="panel-heading text-center"><h1>TV Shows</h1></div>
+                <a class="btn btn-primary btn-lg" href="{{ path('add_tvshow') }}" role="button">Add TV Show </a>
+                <a class="btn btn-primary btn-lg" href="{{ path('rating_tvshow') }}" role="button">TV Show Rating List</a>
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name / Episodes</th>
+                        <th>Type</th>
+                        <th>Year</th>
+                        <th>Image</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for tvShow in tvShows %}
+                        <tr>
+                            <td>{{ tvShow.id }}</td>
+                            <td>
+                                <a href="{{ path('list_episode', {'slug' : tvShow.slug}) }}">
+                                    {{ tvShow.name }}
+                                </a>
+                            </td>
+                            <td>{{ tvShow.type }}</td>
+                            <td>{{ tvShow.year }}</td>
+                            <td>
+                                <img src="{{ tvShow.url }}" alt="{{ tvShow.name }}" height="60" />
+                            </td>
+                            <td>
+                                <a href="{{ path('edit_tvshow', {'slug': tvShow.slug}) }}" class="btn btn-warning">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{ path('delete_tvshow', {'slug' : tvShow.slug}) }}" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

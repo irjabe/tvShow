@@ -1,0 +1,32 @@
+{% extends 'TvShowManagerBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-10 col-sm-8 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-3">
+                <div class="panel-heading text-center">
+                    <h1>TV Show Rating List</h1>
+                    <p> updated on : {{ 'now'|date('d/m/Y') }}</p>
+                </div>
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>Rating</th>
+                        <th>Name</th>
+                        <th>Average Note</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for key, score in scores %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ key }}</td>
+                            <td>{{ score }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

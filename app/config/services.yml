@@ -1,0 +1,5 @@
+parameters:
+
+services:
+    app.sluggifier:
+        class: TvShowManagerBundle\Service\Sluggifier

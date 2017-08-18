@@ -1,0 +1,15 @@
+{% extends 'TvShowManagerBundle::base.html.twig' %}
+
+ {% block body %}
+     <div class="container-fluid">
+         <div class="jumbotron">
+             <div class="container">
+                 <h1 class="display-3"> Welcome to TV Show !</h1>
+                 <p>
+                     <a class="btn btn-primary btn-lg" href="{{ path('list_tvshow') }}" role="button">TV Shows</a>
+                     <a class="btn btn-primary btn-lg" href="{{ path('rating_tvshow') }}" role="button">Rating list</a> <br/><br/>
+                 </p>
+             </div>
+         </div>
+     </div>
+ {% endblock %}

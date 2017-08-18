@@ -1,0 +1,5 @@
+tv_show_manager:
+    resource: "@TvShowManagerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

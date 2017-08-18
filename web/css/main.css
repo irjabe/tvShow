@@ -1,0 +1,17 @@
+html, body {
+    padding:0;
+    margin:0;
+    height: 100%;
+    color: #636363;
+}
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+div.container-fluid {
+    padding: 4rem 0 0 0;
+    margin:0;
+    min-height:100%;
+}
+footer{
+    background-color:rgb(16, 16, 16);
+    color:rgb(119, 119, 119);
+}
